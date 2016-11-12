@@ -11,7 +11,6 @@ class KeyPhraseAnalyzer
 
   def analyze
     uri_encode = "#{@request_url}?appid=#{@api_key}&sentence=#{@sentence}&output=json"
-    puts uri_encode
     res = open(uri_encode)
     code,message = res.status
 
@@ -23,11 +22,3 @@ class KeyPhraseAnalyzer
     end
   end
 end
-
-=begin
-sentence = "鳥取県で震度6弱"
-analyzer = KeyPhraseAnalyzer.new(sentence)
-
-ret = analyzer.analyze
-puts ret
-=end
